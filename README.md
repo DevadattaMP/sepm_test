@@ -22,19 +22,34 @@ The `recipients.txt` file contains a list of email addresses, each on a separate
 
 ### Setting Up Environment Variables in Jenkins
 
-1. Log in to your Jenkins dashboard.
+1. Log in to your Jenkins dashboard. \
+   <img src="images/1.png" width="600" height="300">
+2. Go to "Manage Jenkins" > "Configure System". \
+   <img src="images/2.png" width="200" height="250">\
+   <img src="images/3.png" width="300" height="100">
+4. Scroll down to the "Global properties" section.
 
-2. Go to "Manage Jenkins" > "Configure System".
+5. Check the "Environment variables" checkbox.
 
-3. Scroll down to the "Global properties" section.
-
-4. Check the "Environment variables" checkbox.
-
-5. Add environment variables:
+6. Add environment variables:
    - `SENDER_EMAIL`: The sender's email address.
-   - `SENDER_PASSWORD`: The sender's email password.
-   
+   - `SENDER_PASSWORD`: The sender's email password. \
+   <img src="images/4.png" width="700" height="400"> \
    Ensure these environment variables are set in Jenkins before running the program.
+
+### Installing Required Libraries
+
+Before running the Python script, you need to ensure that the required libraries are installed in your Python environment. 
+
+- **secure-smtplib**: This library provides a secure implementation of the SMTP protocol for sending emails over SSL/TLS connections. It enhances the security of email transmission.
+
+- **email**: The `email` library is used for creating, parsing, and handling email messages in Python. It provides functionality for constructing complex email messages with attachments, HTML content, and more.
+
+To install these libraries, you can use pip:
+
+```bash
+pip install secure-smtplib email
+```
 
 ### Creating a Jenkins Job
 
@@ -44,14 +59,26 @@ The `recipients.txt` file contains a list of email addresses, each on a separate
 
 3. Enter a name for your job (e.g., "Send Email Job").
 
-4. Select the appropriate job type (Freestyle project or Pipeline) and click "OK".
-
+4. Select the appropriate job type (Freestyle project or Pipeline) and click "OK". \
+   <img src="images/5.png" width="500" height="400">
 5. Configure the job:
-   - In the job configuration page, specify the GitHub repository URL containing the Python script (`send_email.py`) and the recipients file (`recipients.txt`).
-   - Add a build step to execute the Python script.
+   - In the job configuration page, specify the GitHub repository URL containing the Python script (`send_email.py`) and the recipients file (`recipients.txt`). Specify the branch. \
+     <img src="images/6.png" width="500" height="600">
+   - Add a build step to execute the Python script by adding a shell command:
+     ```bash
+     python send_email.py
+     ```
+     (In my case, the libraries necessary for program are installed in python 3.12 environment.) \
+     <img src="images/7.png" width="500" height="550">
    - Optionally, configure build triggers and post-build actions according to your requirements.
 
 6. Save the job configuration.
+7. Now build the job. \
+   <img src="images/8.png" width="250" height="400">
+8. You can see the status of job. \
+   <img src="images/9.png" width="700" height="150">
+9. Check console output of job. \
+    <img src="images/10.png" width="700" height="300">
 
 ## Note
 
@@ -64,5 +91,3 @@ The `recipients.txt` file contains a list of email addresses, each on a separate
 For more information on sending emails with Python, you can refer to the following resources:
 - [Python - Sending Email (Tutorialspoint)](https://www.tutorialspoint.com/python/python_sending_email.htm)
 - [Sending Emails With Python (Real Python)](https://realpython.com/python-send-email/)
-
-This README file provides instructions on how to set up environment variables in Jenkins and create a Jenkins job for running the Send Email Program. Follow these instructions to execute the program in your Jenkins environment.
