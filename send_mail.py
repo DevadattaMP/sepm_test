@@ -27,7 +27,7 @@ def main():
         recipients = [line.strip() for line in file if line.strip()]
 
     subject = "Testing envitonment variables"
-    body = "Hello friends, This is email generated using python script on github, run through Jenkins. For authentication of mail server, it is using environment variables."
+    body = "Hello friends, This is email generated using python script on github, exicuted as Jenkins job. For authentication of mail server, it is using environment variables. For more details, please visit https://github.com/DevadattaMP/sepm_test/"
 
     send_email(subject, body, recipients)
 
