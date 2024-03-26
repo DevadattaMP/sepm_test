@@ -1,4 +1,4 @@
-# Send Email Program
+# Send Emails through Program
 
 This repository contains a Python program for sending emails to a list of recipients. The program reads email addresses from a text file and sends a fixed email message to each recipient.
 
@@ -74,15 +74,19 @@ pip install secure-smtplib email
 
 6. Save the job configuration.
 7. Now build the job. \
-   <img src="images/8.png" width="250" height="400">
-8. You can see the status of job. \
-   <img src="images/9.png" width="700" height="150">
-9. Check console output of job. \
-    <img src="images/10.png" width="700" height="300">
+   <img src="images/8.png" width="250" height="400"> \
+You can see the status of job. \
+   <img src="images/9.png" width="700" height="150"> \
+Check console output of job. \
+    <img src="images/10.png" width="700" height="300"> \
+This is how the recipients will see the email- \
+   <img src="images/11.png" width="400" height="175"> <img src="images/12.png" width="400" height="175">
 
 ## Note
 
 - Ensure that the sender's email address and password are stored securely as environment variables in the Jenkins environment to prevent unauthorized access to sensitive information.
+
+- Make sure you have edited the recipient list before executing the program.
 
 - **2-Factor Authentication**: If 2-factor authentication is enabled for your Google account, you need to use an app password instead of your regular password. Visit [this link](https://myaccount.google.com/u/0/apppasswords) to generate an app password for your Gmail account. Use the generated 16-digit code instead of your password in the `SENDER_PASSWORD` environment variable.
 
