@@ -8,7 +8,7 @@ def send_email(subject, body, recipients):
     sender_password = os.environ.get('SENDER_PASSWORD')
     if not sender_email or not sender_password:
         raise ValueError("Sender's email address or password is not set in environment variables.")
-    print(sender_email, sender_password)
+        
     # Construct the email message
     msg = MIMEText(body)
     msg['Subject'] = subject
